@@ -1,0 +1,13 @@
+NAME    = "Blue LAN"
+TYPE    = FIXED
+
+BRIDGE  = vbr1
+ 
+LEASES  = [IP=10.0.2.101]
+LEASES  = [IP=10.0.2.102, MAC=50:20:20:20:20:21]
+LEASES  = [IP=10.0.2.103]
+LEASES  = [IP=10.0.2.104]
+ 
+# Custom Attributes to be used in Context
+GATEWAY = 10.0.2.2
+DNS     = 10.0.2.3

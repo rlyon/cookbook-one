@@ -1,0 +1,3 @@
+NAME          = "ttylinux - kvm"
+PATH          = http://marketplace.c12g.com/appliance/4fc76a938fb81d3517000003/download
+DESCRIPTION   = "This is a very small image that works with OpenNebula. It's already contextualized.  The purpose of this image is to test OpenNebula deployments, without wasting network bandwith thanks to the tiny footprint of this image (40MB). The login information for this image is:\n\n* **login**: root\n* **password**: password\n\n **NOTE:** The contextualization of this image is really simple. You can not set the network mask or the gateway. It's always a C class and gateway is x.y.z.1."

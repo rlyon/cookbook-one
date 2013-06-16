@@ -1,0 +1,3 @@
+NAME          = "ttylinux - kvm"
+PATH          = http://marketplace.c12g.com/appliance/4fc76a938fb81d3517000003/download
+TYPE          = OS

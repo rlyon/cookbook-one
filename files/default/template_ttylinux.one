@@ -1,0 +1,9 @@
+NAME = ttylinux
+
+CPU    = 0.1
+MEMORY = 64
+
+DISK = [ IMAGE = "ttylinux - kvm" ]
+NIC  = [ NETWORK = "Blue LAN" ]
+
+FEATURES = [ acpi="no" ]
