@@ -37,12 +37,17 @@ template "/etc/polkit-1/localauthority/50-local.d/50-org.libvirt.unix.manage-ope
   mode 0644
 end
 
+service 'libvirtd' do
+  supports :status => true, :restart => true, :reload => true
+  action [ :enable, :start ]
+end
+
 template "/etc/libvirt/libvirtd.conf" do
   source "libvirtd.conf.erb"
   owner "root"
   group "root"
   mode 0644
-  notifies :reload, 'service[libvirtd]'
+  notifies :reload, 'service[libvirtd]', :immediatly
 end
 
 template "/etc/libvirt/qemu.conf" do
@@ -50,10 +55,5 @@ template "/etc/libvirt/qemu.conf" do
   owner "root"
   group "root"
   mode 0644
-  notifies :reload, 'service[libvirtd]'
-end
-
-service 'libvirtd' do
-  supports :status => true, :restart => true, :reload => true
-  action [ :enable, :start ]
+  notifies :reload, 'service[libvirtd]', :immediatly
 end

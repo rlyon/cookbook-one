@@ -17,10 +17,8 @@
 # limitations under the License.
 #
 
-package "bridge-utils"
-
 execute "Create the host" do
-  command "su - oneadmin -c 'onehost create #{node['fqdn']} -i kvm -v kvm -n ebtables'"
+  command "su - oneadmin -c 'onehost create #{node['fqdn']} -i kvm -v qemu -n dummy'"
   not_if "su - oneadmin -c 'onehost show 0'"
   action :run
 end
@@ -40,7 +38,7 @@ cookbook_file "#{node['one']['oneadmin']['home']}/setup/image_ttylinux.one" do
 end
 
 execute "Download and install the ttylinux image" do
-  command "su - oneadmin -c 'oneimage create #{node['one']['oneadmin']['home']}/setup/market_ttylinux.one --datastore default'"
+  command "su - oneadmin -c 'oneimage create #{node['one']['oneadmin']['home']}/setup/image_ttylinux.one --datastore default'"
   not_if "su - oneadmin -c 'oneimage show 0'"
   action :run
 end
@@ -70,3 +68,14 @@ execute "Create the vnet" do
   not_if "su - oneadmin -c 'onetemplate show 0'"
   action :run
 end
+
+remote_directory "/var/lib/one/remotes/vmm/qemu" do
+  source "qemu"
+  files_owner "oneadmin"
+  files_group "oneadmin"
+  files_mode 00755
+  owner "oneadmin"
+  group "oneadmin"
+  mode 00755
+end
+

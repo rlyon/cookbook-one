@@ -7,3 +7,7 @@ DISK = [ IMAGE = "ttylinux - kvm" ]
 NIC  = [ NETWORK = "Blue LAN" ]
 
 FEATURES = [ acpi="no" ]
+
+GRAPHICS = [ 
+  TYPE    = "vnc",
+  LISTEN  = "0.0.0.0"]

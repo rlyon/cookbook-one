@@ -8,7 +8,6 @@ Vagrant.configure("2") do |config|
     config.vm.box = "opscode-centos-6.4"
     config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-6.4_chef-11.4.4.box"
     config.vm.network :private_network, ip: "33.33.33.10"
-    config.vm.network :private_network, ip: "10.1.1.1"
     config.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     end

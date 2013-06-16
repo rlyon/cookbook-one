@@ -1,7 +1,7 @@
 NAME    = "Blue LAN"
 TYPE    = FIXED
 
-BRIDGE  = vbr1
+BRIDGE  = virbr0
  
 LEASES  = [IP=10.0.2.101]
 LEASES  = [IP=10.0.2.102, MAC=50:20:20:20:20:21]

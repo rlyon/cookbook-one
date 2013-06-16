@@ -34,6 +34,12 @@ group "disk" do
   append true
 end
 
+# group "kvm" do
+#   action :modify
+#   members "oneadmin"
+#   append true
+# end
+
 directory "#{node['one']['oneadmin']['home']}/.one" do
   owner "oneadmin"
   group "oneadmin"

@@ -11,6 +11,10 @@ describe 'one::default' do
     group("disk").must_include('oneadmin')
   end
 
+  # it "grants group membership to oneadmin" do
+  #   group("kvm").must_include('oneadmin')
+  # end
+
   it "should be able to use ssh without a password" do
     result = assert_sh(run_as_oneadmin("ssh oneadmin@localhost whoami"))
     assert_includes result, "oneadmin"
