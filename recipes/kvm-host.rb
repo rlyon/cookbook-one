@@ -47,7 +47,7 @@ template "/etc/libvirt/libvirtd.conf" do
   owner "root"
   group "root"
   mode 0644
-  notifies :reload, 'service[libvirtd]', :immediatly
+  notifies :reload, 'service[libvirtd]', :immediately
 end
 
 template "/etc/libvirt/qemu.conf" do
@@ -55,5 +55,5 @@ template "/etc/libvirt/qemu.conf" do
   owner "root"
   group "root"
   mode 0644
-  notifies :reload, 'service[libvirtd]', :immediatly
+  notifies :reload, 'service[libvirtd]', :immediately
 end
