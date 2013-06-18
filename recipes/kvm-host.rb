@@ -57,3 +57,9 @@ template "/etc/libvirt/qemu.conf" do
   mode 0644
   notifies :reload, 'service[libvirtd]', :immediately
 end
+
+service "messagebus" do
+  supports :status => true, :restart => true, :reload => true
+  action [ :enable, :start ]
+end
+
