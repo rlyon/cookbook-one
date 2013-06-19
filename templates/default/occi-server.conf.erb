@@ -23,7 +23,7 @@
 :tmpdir: /var/tmp
 
 # OpenNebula sever contact information
-:one_xmlrpc: http://<%= node['one']['occi']['host'] %>:2633/RPC2
+:one_xmlrpc: <%= node['one']['occi']['xmlrpc'] %>
 
 # Host and port where OCCI server will run
 :host: <%= node['one']['occi']['host'] %>
