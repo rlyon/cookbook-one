@@ -23,13 +23,22 @@ include_recipe "apache2::mod_proxy"
 include_recipe "apache2::mod_proxy_http"
 include_recipe "apache2::mod_headers"
 
+if node['one']['proxy']['mod_ssl']
+  include_recipe "apache::mod_ssl"
+end
+  
+
 template "#{node['apache']['dir']}/sites-available/sunstone.conf" do
   source "proxy-sunstone.conf.erb"
   owner "root"
   group "root"
   mode 0644
   notifies :restart, 'service[apache2]'
-  variables({:frontend => node['one']['proxy']['frontend_ip']})
+  variables({
+    :frontend => node['one']['proxy']['frontend_ip'],
+    :mod_ssl => node['one']['proxy']['mod_ssl'],
+    :port => node['one']['proxy']['port']
+  })
 end
 
 template "#{node['apache']['dir']}/sites-available/api.conf" do

@@ -21,6 +21,8 @@ default['one']['version'] = "4.0.1-1"
 default['one']['vagrantup'] = false
 default['one']['oneadmin']['home'] = "/var/lib/one"
 default['one']['proxy']['frontend_ip'] = "127.0.0.1"
+default['one']['proxy']['sunstone_port'] = 80
+default['one']['proxy']['mod_ssl'] = false
 default['one']['repos']['url'] = "http://universe.ibest.uidaho.edu/opennebula/el#{node['platform_version'].to_i}/$basearch"
 default['one']['frontend']['packages'] = %w{
   opennebula-common
@@ -48,6 +50,7 @@ default['one']['sunstone']['xmlrpc'] = "http://localhost:2633/RPC2"
 default['one']['sunstone']['host'] = "127.0.0.1"
 default['one']['sunstone']['port'] = "9869"
 default['one']['sunstone']['debug_level'] = "3"
+default['one']['sunstone']['auth'] = "sunstone"
 
 default['one']['occi']['xmlrpc'] = "http://localhost:2633/RPC2"
 default['one']['occi']['host'] = "127.0.0.1"
